@@ -24,6 +24,7 @@ class ReelInfoWidget extends StatelessWidget {
           ListTile(
             contentPadding: const EdgeInsets.all(0),
             title: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Flexible(
                   child: Text(
@@ -31,14 +32,11 @@ class ReelInfoWidget extends StatelessWidget {
                     style: buildBoldNormalStyle(),
                   ),
                 ),
-                const SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  formattedDate,
-                  style: buildBoldNormalStyle(),
-                ),
               ],
+            ),
+            subtitle: Text(
+              formattedDate,
+              style: buildDefaultStyle(),
             ),
             leading: CircleAvatar(
               radius: 20,
