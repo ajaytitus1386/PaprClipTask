@@ -21,6 +21,10 @@ dependencies:
   internet_connection_checker: ^0.0.1+3
   # HTTP Requests
   http: ^0.13.4
+  # Business Logic Container
+  flutter_bloc: ^8.0.1
+  # Service Locator
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
