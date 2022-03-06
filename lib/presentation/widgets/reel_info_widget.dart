@@ -9,32 +9,38 @@ class ReelInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          title: Text(
-            reel.sourcePage,
-            style: buildBoldNormalStyle(),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 8),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          ListTile(
+            contentPadding: const EdgeInsets.all(0),
+            title: Text(
+              reel.sourcePage,
+              style: buildBoldNormalStyle(),
+            ),
+            leading: CircleAvatar(
+              radius: 20,
+              backgroundImage: NetworkImage(reel.displayImage),
+            ),
           ),
-          leading: CircleAvatar(
-            radius: 20,
-            backgroundImage: NetworkImage(reel.displayImage),
+          ExpandableText(
+            reel.title,
+            expandText: '',
+            expandOnTextTap: true,
+            collapseOnTextTap: true,
+            maxLines: 1,
+            style: buildDefaultStyle(),
+            linkColor: Colors.white,
+            textAlign: TextAlign.left,
           ),
-        ),
-        ExpandableText(
-          reel.title,
-          expandText: '',
-          expandOnTextTap: true,
-          collapseOnTextTap: true,
-          maxLines: 1,
-          style: buildDefaultStyle(),
-          linkColor: Colors.white,
-          textAlign: TextAlign.left,
-        ),
-        const SizedBox(
-          height: 20,
-        )
-      ],
+          const SizedBox(
+            height: 20,
+          )
+        ],
+      ),
     );
   }
 }
