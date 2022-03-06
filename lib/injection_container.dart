@@ -25,5 +25,5 @@ Future<void> init() async {
   // External Dependencies
   sl.registerLazySingleton(() => ReelApi(client: sl()));
   sl.registerLazySingleton(() => InternetConnectionChecker());
-  sl.registerLazySingleton(() => http.Client);
+  sl.registerLazySingleton(() => http.Client());
 }
