@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ajaytitus1386.papr_clip_task.papr_clip_task">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="papr_clip_task"
         android:name="${applicationName}"
