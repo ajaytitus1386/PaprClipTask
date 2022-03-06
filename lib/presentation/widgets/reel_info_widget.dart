@@ -9,6 +9,12 @@ class ReelInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime date = DateTime.fromMillisecondsSinceEpoch(reel.timestamp * 1000);
+    String formattedDate = date.day.toString() +
+        '-' +
+        date.month.toString() +
+        '-' +
+        date.year.toString();
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Column(
@@ -17,9 +23,22 @@ class ReelInfoWidget extends StatelessWidget {
         children: [
           ListTile(
             contentPadding: const EdgeInsets.all(0),
-            title: Text(
-              reel.sourcePage,
-              style: buildBoldNormalStyle(),
+            title: Row(
+              children: [
+                Flexible(
+                  child: Text(
+                    reel.sourcePage,
+                    style: buildBoldNormalStyle(),
+                  ),
+                ),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  formattedDate,
+                  style: buildBoldNormalStyle(),
+                ),
+              ],
             ),
             leading: CircleAvatar(
               radius: 20,
