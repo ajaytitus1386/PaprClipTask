@@ -9,6 +9,7 @@ class ReelApi {
 
   ReelApi({required this.client});
 
+  /// Fetch JSON response from API endpoint and returns it as List[ReelModel]
   Future<List<ReelModel>> fetchAllReels() async {
     const url = 'https://api.bottomstreet.com/socialMediaFeed?source=youtube';
 

@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:papr_clip_task/domain/entities/reel.dart';
 import 'package:papr_clip_task/presentation/animations/like_animation_widget.dart';
 import 'package:papr_clip_task/presentation/animations/mute_animation_widget.dart';
+import 'package:papr_clip_task/presentation/styling/color_palettes.dart';
 import 'package:papr_clip_task/presentation/widgets/reel_actions_widget.dart';
 import 'package:papr_clip_task/presentation/widgets/reel_info_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -104,7 +105,7 @@ class _ReelWidgetState extends State<ReelWidget> {
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: YoutubePlayer(
-                    controlsTimeOut: const Duration(milliseconds: 0),
+                    controlsTimeOut: Duration.zero,
                     aspectRatio: 3 / 4,
                     width: MediaQuery.of(context).size.width,
                     controller: _youtubePlayerController,
@@ -126,7 +127,7 @@ class _ReelWidgetState extends State<ReelWidget> {
               )),
             ),
             //
-            // Reel Controls
+            // Reel Controls - Hidden on Long Press
             //
             Opacity(
               opacity: isUiHidden ? 0 : 1,
@@ -153,6 +154,9 @@ class _ReelWidgetState extends State<ReelWidget> {
                 ],
               ),
             ),
+            //
+            // Double Tap Like Icon animated widget
+            //
             Opacity(
               opacity: isLikeIconAnimating ? 1 : 0,
               child: Center(
@@ -160,7 +164,7 @@ class _ReelWidgetState extends State<ReelWidget> {
                   child: FaIcon(
                     FontAwesomeIcons.solidHeart,
                     size: 120,
-                    color: Colors.red.shade400,
+                    color: likeRed,
                   ),
                   isAnimating: isLikeIconAnimating,
                   duration: const Duration(milliseconds: 500),
@@ -170,6 +174,9 @@ class _ReelWidgetState extends State<ReelWidget> {
                 ),
               ),
             ),
+            //
+            // Single Tap Mute Icon animated Widget
+            //
             Opacity(
               opacity: isMuteIconAnimating ? 1 : 0,
               child: Center(
@@ -179,7 +186,7 @@ class _ReelWidgetState extends State<ReelWidget> {
                         ? FontAwesomeIcons.volumeMute
                         : FontAwesomeIcons.volumeUp,
                     size: 40,
-                    color: Colors.white,
+                    color: primary,
                   ),
                   duration: const Duration(milliseconds: 500),
                   isAnimating: isMuteIconAnimating,

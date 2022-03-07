@@ -2,11 +2,13 @@ import 'dart:convert';
 
 import 'package:papr_clip_task/domain/entities/reel.dart';
 
+/// Returns a List[ReelModel] from a [String] of array of JSON objects
 List<ReelModel> reelsFromJson(String str) {
   return List<ReelModel>.from(
       json.decode(str).map((reelJson) => ReelModel.fromJson(reelJson)));
 }
 
+/// Returns a JSON [String] with array of Reel objects from List[ReelModel]
 String reelsToJson(List<ReelModel> reels) {
   return json.encode(List<dynamic>.from(reels.map((reel) => reel.toJson())));
 }

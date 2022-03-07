@@ -21,6 +21,8 @@ class ReelBloc extends Bloc<ReelEvent, ReelState> {
       emit(eitherFailureOrReels(failureOrReels));
     });
   }
+
+  /// Folds an [Either] object into [Failure] with its message or List[Reel]
   ReelState eitherFailureOrReels(Either<Failure, List<Reel>> failureOrReels) {
     return failureOrReels.fold(
         (failure) => ReelError(message: failure.toString()),
