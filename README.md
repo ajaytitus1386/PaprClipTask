@@ -81,4 +81,4 @@ All this techno jumbo happens under the hood however. All that the user sees is 
     1. Double Tap to Like the Reel (or unlike it)
     2. Single Tap to Mute / Umute the video
     3. Tap and Hold to pause video playback until hold is released
-    4. Swiping up or down to between reels
+    4. Swiping up or down to navigate between reels
