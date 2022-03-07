@@ -21,6 +21,16 @@ dependencies:
   internet_connection_checker: ^0.0.1+3
   # HTTP Requests
   http: ^0.13.4
+  # Business Logic Container
+  flutter_bloc: ^8.0.1
+  # Service Locator
+  get_it: ^7.2.0
+  # Icons Library
+  font_awesome_flutter: ^9.2.0
+  # Responsive expansion
+  expandable_text: ^2.2.0
+  # Supports youtube links
+  youtube_player_flutter: ^8.0.0
 
 dev_dependencies:
   flutter_test:
