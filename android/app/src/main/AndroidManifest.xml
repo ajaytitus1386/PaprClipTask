@@ -2,7 +2,7 @@
     package="com.ajaytitus1386.papr_clip_task.papr_clip_task">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="papr_clip_task"
+        android:label="Flix"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
