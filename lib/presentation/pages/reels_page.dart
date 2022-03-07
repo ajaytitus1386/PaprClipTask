@@ -11,11 +11,12 @@ class ReelsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black87,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         elevation: 0,
         title: Text(
-          'Reels',
+          'Flix',
           style: buildPageHeadingStyle(),
         ),
         backgroundColor: Colors.transparent,
@@ -37,7 +38,10 @@ class ReelsPage extends StatelessWidget {
             );
           } else if (state is ReelError) {
             return Center(
-              child: Text('Error Widget'),
+              child: Text(
+                'Error Widget',
+                style: buildPageHeadingStyle(),
+              ),
             );
           }
           return const SizedBox.shrink();
