@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:papr_clip_task/presentation/bloc/reel_bloc.dart';
 import 'package:papr_clip_task/presentation/global/event_dispatchers.dart';
 import 'package:papr_clip_task/presentation/styling/text_styles.dart';
+import 'package:papr_clip_task/presentation/widgets/reel_error_widget.dart';
 import 'package:papr_clip_task/presentation/widgets/reel_widget.dart';
 
 class ReelsPage extends StatelessWidget {
@@ -37,12 +38,7 @@ class ReelsPage extends StatelessWidget {
               },
             );
           } else if (state is ReelError) {
-            return Center(
-              child: Text(
-                'Error Widget',
-                style: buildPageHeadingStyle(),
-              ),
-            );
+            return Center(child: ReelErrorWidget(message: state.message));
           }
           return const SizedBox.shrink();
         },

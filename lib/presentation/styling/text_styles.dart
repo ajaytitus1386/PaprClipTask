@@ -5,6 +5,13 @@ TextStyle buildPageHeadingStyle() {
       color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold);
 }
 
+TextStyle buildErrorHeadingStyle() {
+  return const TextStyle(
+      color: Color.fromARGB(255, 148, 21, 12),
+      fontSize: 24,
+      fontWeight: FontWeight.bold);
+}
+
 TextStyle buildSplashHeadingStyle() {
   return const TextStyle(
       color: Colors.white,
