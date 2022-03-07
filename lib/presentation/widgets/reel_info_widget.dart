@@ -1,6 +1,7 @@
 import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:papr_clip_task/domain/entities/reel.dart';
+import 'package:papr_clip_task/presentation/global/event_dispatchers.dart';
 import 'package:papr_clip_task/presentation/styling/text_styles.dart';
 
 class ReelInfoWidget extends StatelessWidget {
@@ -41,6 +42,10 @@ class ReelInfoWidget extends StatelessWidget {
             leading: CircleAvatar(
               radius: 20,
               backgroundImage: NetworkImage(reel.displayImage),
+              onBackgroundImageError:
+                  (Object exception, StackTrace? stacktrace) {
+                dispatchGetAllReels(context);
+              },
             ),
           ),
           ExpandableText(
