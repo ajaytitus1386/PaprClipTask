@@ -5,6 +5,14 @@ TextStyle buildPageHeadingStyle() {
       color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold);
 }
 
+TextStyle buildSplashHeadingStyle() {
+  return const TextStyle(
+      color: Colors.white,
+      fontSize: 36,
+      fontWeight: FontWeight.bold,
+      letterSpacing: 5);
+}
+
 TextStyle buildDefaultStyle() {
   return const TextStyle(
       color: Colors.white, fontSize: 14, fontWeight: FontWeight.w600);
