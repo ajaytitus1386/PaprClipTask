@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:papr_clip_task/presentation/bloc/reel_bloc.dart';
 import 'package:papr_clip_task/presentation/global/event_dispatchers.dart';
+import 'package:papr_clip_task/presentation/styling/color_palettes.dart';
 import 'package:papr_clip_task/presentation/styling/text_styles.dart';
 import 'package:papr_clip_task/presentation/widgets/reel_error_widget.dart';
 import 'package:papr_clip_task/presentation/widgets/reel_widget.dart';
@@ -26,8 +27,10 @@ class ReelsPage extends StatelessWidget {
         builder: (context, state) {
           if (state is ReelInitial) {
             dispatchGetAllReels(context);
-            return const Center(
-              child: CircularProgressIndicator(),
+            return Center(
+              child: CircularProgressIndicator(
+                color: primary,
+              ),
             );
           } else if (state is ReelLoaded) {
             return PageView.builder(

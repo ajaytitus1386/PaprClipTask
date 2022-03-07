@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:papr_clip_task/presentation/global/event_dispatchers.dart';
+import 'package:papr_clip_task/presentation/styling/color_palettes.dart';
 import 'package:papr_clip_task/presentation/styling/text_styles.dart';
 
 class ReelErrorWidget extends StatelessWidget {
@@ -36,13 +37,14 @@ class ReelErrorWidget extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
+            // Refresh State Button
             IconButton(
                 onPressed: () {
                   dispatchGetAllReels(context);
                 },
-                icon: const Icon(
+                icon: Icon(
                   Icons.restart_alt,
-                  color: Colors.white,
+                  color: primary,
                   size: 20,
                 ))
           ],

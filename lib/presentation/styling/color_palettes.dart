@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+Color primary = Colors.white;
+Color secondary = Colors.black87;
+Color likeRed = Colors.red.shade400;
+
 LinearGradient reelTopGradient = const LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
