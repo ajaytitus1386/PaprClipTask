@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:papr_clip_task/presentation/styling/color_palettes.dart';
 import 'package:papr_clip_task/presentation/styling/text_styles.dart';
 
 class ReelActionsWidget extends StatefulWidget {
@@ -13,9 +14,10 @@ class ReelActionsWidget extends StatefulWidget {
 }
 
 class _ReelActionsWidgetState extends State<ReelActionsWidget> {
-  // Randomly Generated Like and Comment counts
-  int likes = Random().nextInt(899) + 100;
+  //? Randomly Generated Like and Comment counts
+  int likes = Random().nextInt(899) + 100; // Likes in the scale of thousands
   int comments = Random().nextInt(5999) + 1000;
+  //?
   @override
   Widget build(BuildContext context) {
     const double iconSize = 30.0;
@@ -31,15 +33,17 @@ class _ReelActionsWidgetState extends State<ReelActionsWidget> {
         ? FaIcon(
             FontAwesomeIcons.solidHeart,
             size: iconSize,
-            color: Colors.red.shade400,
+            color: likeRed,
           )
-        : const FaIcon(
+        // Else use outlined icon
+        : FaIcon(
             FontAwesomeIcons.heart,
             size: iconSize,
-            color: Colors.white,
+            color: primary,
           );
 
     return SizedBox(
+      //? height of action bar
       height: 300,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
@@ -87,7 +91,7 @@ class _ReelActionsWidgetState extends State<ReelActionsWidget> {
     return IconButton(
       onPressed: onTap ?? () {},
       icon: icon,
-      color: Colors.white,
+      color: primary,
     );
   }
 }

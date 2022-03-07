@@ -2,6 +2,7 @@ import 'package:expandable_text/expandable_text.dart';
 import 'package:flutter/material.dart';
 import 'package:papr_clip_task/domain/entities/reel.dart';
 import 'package:papr_clip_task/presentation/global/event_dispatchers.dart';
+import 'package:papr_clip_task/presentation/styling/color_palettes.dart';
 import 'package:papr_clip_task/presentation/styling/text_styles.dart';
 
 class ReelInfoWidget extends StatelessWidget {
@@ -10,6 +11,7 @@ class ReelInfoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Converting timestamp from Unix Epoch
     DateTime date = DateTime.fromMillisecondsSinceEpoch(reel.timestamp * 1000);
     String formattedDate = date.day.toString() +
         '-' +
@@ -22,6 +24,9 @@ class ReelInfoWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          //
+          // Display Image, Source Page and Date
+          //
           ListTile(
             contentPadding: const EdgeInsets.all(0),
             title: Row(
@@ -48,6 +53,9 @@ class ReelInfoWidget extends StatelessWidget {
               },
             ),
           ),
+          //
+          // Title
+          //
           ExpandableText(
             reel.title,
             expandText: '',
@@ -55,7 +63,7 @@ class ReelInfoWidget extends StatelessWidget {
             collapseOnTextTap: true,
             maxLines: 1,
             style: buildDefaultStyle(),
-            linkColor: Colors.white,
+            linkColor: primary,
             textAlign: TextAlign.left,
           ),
           const SizedBox(
