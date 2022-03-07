@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:papr_clip_task/injection_container.dart';
 import 'package:papr_clip_task/presentation/bloc/reel_bloc.dart';
 import 'package:papr_clip_task/presentation/pages/reels_page.dart';
+import 'package:papr_clip_task/presentation/widgets/splash_screen_widget.dart';
 import 'injection_container.dart' as di;
 
 void main() async {
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const ReelsPage(),
+        home: const SplashScreenWidget(nextChild: ReelsPage()),
       ),
     );
   }
