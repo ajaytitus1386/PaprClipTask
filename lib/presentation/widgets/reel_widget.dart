@@ -17,6 +17,7 @@ class ReelWidget extends StatefulWidget {
 
 class _ReelWidgetState extends State<ReelWidget> {
   late YoutubePlayerController _youtubePlayerController;
+  bool isUiHidden = false;
   bool isMute = false;
   bool isLiked = false;
   bool isMuteIconAnimating = false;
@@ -63,12 +64,18 @@ class _ReelWidgetState extends State<ReelWidget> {
   void pauseReel(LongPressStartDetails longPressStartDetails) {
     if (_youtubePlayerController.value.isPlaying) {
       _youtubePlayerController.pause();
+      setState(() {
+        isUiHidden = true;
+      });
     }
   }
 
   void playReel(LongPressEndDetails longPressEndDetails) {
     if (!_youtubePlayerController.value.isPlaying) {
       _youtubePlayerController.play();
+      setState(() {
+        isUiHidden = false;
+      });
     }
   }
 
@@ -121,27 +128,30 @@ class _ReelWidgetState extends State<ReelWidget> {
             //
             // Reel Controls
             //
-            Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    // Reel Info
-                    Flexible(
-                        flex: 14,
-                        child: ReelInfoWidget(
-                          reel: widget.reel,
-                        )),
-                    // Reel Actions
-                    Flexible(
-                        flex: 2,
-                        child: ReelActionsWidget(
-                          isLiked: isLiked,
-                        ))
-                  ],
-                )
-              ],
+            Opacity(
+              opacity: isUiHidden ? 0 : 1,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      // Reel Info
+                      Flexible(
+                          flex: 14,
+                          child: ReelInfoWidget(
+                            reel: widget.reel,
+                          )),
+                      // Reel Actions
+                      Flexible(
+                          flex: 2,
+                          child: ReelActionsWidget(
+                            isLiked: isLiked,
+                          ))
+                    ],
+                  )
+                ],
+              ),
             ),
             Opacity(
               opacity: isLikeIconAnimating ? 1 : 0,
